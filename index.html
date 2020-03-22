@@ -83,12 +83,12 @@
       } else if (!isCellPhone(phone)) {
         alert('연락처 입력 형식이 틀립니다. \n 010-0000-0000으로 입력해주세요')
         return
-      }
+      } else alert('주문완료!')
 
       $.ajax({
         type: "POST",
         url: "/order",
-        data: { name_give: name, option_give: option, address_give: address, phone_give: phone },
+        data: { name_give: name , option_give: option , address_give: address , phone_give: phone },
         success: function(response){
           if(response['result'] == 'success'){
             alert('주문 완료!');
