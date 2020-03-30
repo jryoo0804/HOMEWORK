@@ -15,9 +15,9 @@ musics = soup.select('#body-content > div.newest-list > div > table > tbody > tr
 rank = 1
 for music in musics:
     # movie 안에 a 가 있으면,
-    a_tag = music.select_one('#body-content > div.newest-list > div > table > tbody > tr')
+    a_tag = music.select_one('td.info > a')
     if a_tag is not None:
-        title = a_tag.text
-        artist = music.select_one('#body-content > div.newest-list > div > table > tbody > tr:nth-child(1) > td.info > a.artist.ellipsis').text
+        title = a_tag.text.strip()
+        artist = music.select_one('td.info > a.artist.ellipsis').text
         print(rank,title,artist)
         rank += 1
